@@ -28,3 +28,93 @@
     opacity: 1;
     transform: translateX(0);
 }
+
+/* ── Antigravity Card Animations ── */
+@keyframes floatAway {
+    0%   { opacity: 1; transform: translateY(0) rotate(0deg); filter: blur(0); }
+    100% { opacity: 0; transform: translateY(-80px) rotate(4deg); filter: blur(8px); }
+}
+
+@keyframes floatIn {
+    0%   { opacity: 0; transform: translateY(60px) scale(0.92); filter: blur(6px); }
+    60%  { opacity: 0.8; transform: translateY(-8px) scale(1.01); filter: blur(0); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes subtlePulse {
+    0%   { box-shadow: 0 0 0 0 rgba(59,130,246,0.25); }
+    50%  { box-shadow: 0 0 14px 4px rgba(59,130,246,0.18); }
+    100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.25); }
+}
+
+.card-exit {
+    animation: floatAway 0.4s ease-out forwards;
+    pointer-events: none;
+}
+
+.card-enter {
+    animation: floatIn 0.5s cubic-bezier(0.2, 0.85, 0.3, 1.05) forwards;
+}
+
+.card-pulse {
+    animation: subtlePulse 0.6s ease-in-out;
+}
+
+/* ── Country Filter Pill Buttons ── */
+#country-filter-section {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+#country-filter-section.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.country-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border: 1.5px solid rgba(147, 197, 253, 0.45);
+    color: #dbeafe;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.country-pill:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(147, 197, 253, 0.7);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.country-pill.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+}
+
+.country-pill.active:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+@keyframes pillSlideIn {
+    0%   { opacity: 0; transform: translateY(8px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.country-pill-animate {
+    animation: pillSlideIn 0.3s ease forwards;
+}

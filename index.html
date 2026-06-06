@@ -464,86 +464,20 @@
                 </div>
             </div>
 
-            <!-- Countries List Section -->
-            <div class="mb-10 p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
-                <!-- Middle East Countries -->
-                <div id="middle-east-countries" class="block">
-                    <h3 class="text-white font-bold text-lg mb-4 flex items-center">
-                        <i class="fas fa-map text-brand-300 mr-3"></i>Middle East Countries
-                    </h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Israel
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>UAE
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Saudi Arabia
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Kuwait
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Qatar
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Bahrain
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Oman
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Europe Countries -->
-                <div id="europe-countries" class="hidden">
-                    <h3 class="text-white font-bold text-lg mb-4 flex items-center">
-                        <i class="fas fa-landmark text-brand-300 mr-3"></i>European Countries
-                    </h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Germany
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Poland
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Romania
-                        </div>
-                        <div
-                            class="bg-brand-600/30 border border-brand-400/50 rounded-lg p-3 text-white hover:bg-brand-500/40 transition-colors">
-                            <i class="fas fa-flag text-brand-300 mr-2"></i>Italy
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- All Countries -->
-                <div id="all-countries" class="hidden">
-                    <h3 class="text-white font-bold text-lg mb-4 flex items-center">
-                        <i class="fas fa-star text-brand-300 mr-3"></i>All Available Countries
-                    </h3>
-                    <p class="text-blue-100">We offer employment opportunities in all regions mentioned above. Select a
-                        specific region to see detailed country listings.</p>
-                </div>
+            <!-- Country Filter Pills (Dynamic) -->
+            <div id="country-filter-section"
+                class="mb-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 items-start sm:items-center collapsed">
+                <span
+                    class="text-blue-200 font-semibold text-xs uppercase tracking-wider mb-1 sm:mb-0 sm:mr-2 w-full sm:w-auto flex items-center gap-1">
+                    <i class="fas fa-filter text-brand-300"></i> Filter by Country:
+                </span>
+                <div id="country-pills-container" class="flex flex-wrap gap-2"></div>
             </div>
-
             <div id="vacancies-carousel"
                 class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none pb-6">
                 <!-- Caregiver Card -->
                 <div class="job-card group relative rounded-3xl overflow-hidden cursor-pointer h-96 border border-brand-800 fade-left w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start transition-all duration-300"
-                    data-country="all" onclick="window.location.href = 'services.html'">
+                    data-country="middle-east all israel" onclick="window.location.href = 'services.html'">
                     <img src="images/caregivingProfessional.avif" alt="Caregiver Jobs" loading="lazy"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div
@@ -572,7 +506,7 @@
 
                 <!-- Agriculture Card -->
                 <div class="job-card group relative rounded-3xl overflow-hidden cursor-pointer h-96 border border-brand-800 fade-left w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start transition-all duration-300"
-                    data-country="middle-east all" onclick="window.location.href = 'services.html'">
+                    data-country="middle-east all israel" onclick="window.location.href = 'services.html'">
                     <img src="images/agriculture-farming.avif" alt="Agriculture Jobs" loading="lazy"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div
@@ -597,7 +531,7 @@
 
                 <!-- Technical Card -->
                 <div class="job-card group relative rounded-3xl overflow-hidden cursor-pointer h-96 border border-brand-800 fade-right w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start transition-all duration-300"
-                    data-country="europe all" onclick="window.location.href = 'services.html'">
+                    data-country="europe all germany" onclick="window.location.href = 'services.html'">
                     <img src="images/technical-industrialServices.avif" alt="Technical Jobs" loading="lazy"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div
@@ -623,7 +557,7 @@
 
                 <!-- Unskilled Cleaners Card -->
                 <div class="job-card group relative rounded-3xl overflow-hidden cursor-pointer h-96 border border-brand-800 fade-right w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start transition-all duration-300"
-                    data-country="middle-east all" onclick="window.location.href = 'services.html'">
+                    data-country="middle-east all uae qatar" onclick="window.location.href = 'services.html'">
                     <img src="images/unskilled-cleaners.avif" alt="Cleaning Jobs" loading="lazy"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div
@@ -781,51 +715,186 @@
     <script src="js/sendMessage.js"></script>
     <script src="js/app.js"></script>
     <script>
-        // Country Filter Function
-        function filterCountry(country) {
-            // Update button styles
+        // ── Country data per region ──
+        const regionCountries = {
+            'middle-east': [
+                { name: 'Israel', slug: 'israel', icon: 'fas fa-flag' },
+                { name: 'UAE', slug: 'uae', icon: 'fas fa-flag' },
+                { name: 'Saudi Arabia', slug: 'saudi-arabia', icon: 'fas fa-flag' },
+                { name: 'Kuwait', slug: 'kuwait', icon: 'fas fa-flag' },
+                { name: 'Qatar', slug: 'qatar', icon: 'fas fa-flag' },
+                { name: 'Bahrain', slug: 'bahrain', icon: 'fas fa-flag' },
+                { name: 'Oman', slug: 'oman', icon: 'fas fa-flag' },
+            ],
+            'europe': [
+                { name: 'Germany', slug: 'germany', icon: 'fas fa-flag' },
+                { name: 'Poland', slug: 'poland', icon: 'fas fa-flag' },
+                { name: 'Romania', slug: 'romania', icon: 'fas fa-flag' },
+                { name: 'Italy', slug: 'italy', icon: 'fas fa-flag' },
+            ]
+        };
+
+        let activeRegion = 'middle-east';
+        let activeCountrySlug = null;
+
+        // ── Build country pills for a region ──
+        function buildCountryPills(region) {
+            const container = document.getElementById('country-pills-container');
+            const section = document.getElementById('country-filter-section');
+            if (!container || !section) return;
+
+            container.innerHTML = '';
+            activeCountrySlug = null;
+
+            if (region === 'all') {
+                // Show all countries from both regions
+                const allCountries = [...regionCountries['middle-east'], ...regionCountries['europe']];
+                allCountries.forEach((c, i) => {
+                    const btn = createPill(c, i);
+                    container.appendChild(btn);
+                });
+                section.classList.remove('collapsed');
+                section.style.maxHeight = section.scrollHeight + 60 + 'px';
+                section.style.opacity = '1';
+                return;
+            }
+
+            const countries = regionCountries[region];
+            if (!countries || countries.length === 0) {
+                section.classList.add('collapsed');
+                return;
+            }
+
+            countries.forEach((c, i) => {
+                const btn = createPill(c, i);
+                container.appendChild(btn);
+            });
+
+            section.classList.remove('collapsed');
+            section.style.maxHeight = section.scrollHeight + 60 + 'px';
+            section.style.opacity = '1';
+        }
+
+        function createPill(countryObj, index) {
+            const btn = document.createElement('button');
+            btn.className = 'country-pill country-pill-animate';
+            btn.style.animationDelay = (index * 0.05) + 's';
+            btn.innerHTML = `<i class="${countryObj.icon}"></i> ${countryObj.name}`;
+            btn.setAttribute('data-slug', countryObj.slug);
+            btn.addEventListener('click', () => filterByCountry(countryObj.slug, btn));
+            return btn;
+        }
+
+        // ── Region filter (existing buttons) ──
+        function filterCountry(region) {
+            activeRegion = region;
+            activeCountrySlug = null;
+
+            // Update region button styles
             const buttons = document.querySelectorAll('.country-filter-btn');
             buttons.forEach(btn => {
                 btn.classList.remove('active', 'bg-brand-500', 'border-brand-500');
                 btn.classList.add('border-white/30', 'hover:bg-white/10');
             });
-
-            const activeBtn = document.querySelector(`[data-country="${country}"]`);
+            const activeBtn = document.querySelector(`.country-filter-btn[data-country="${region}"]`);
             if (activeBtn) {
                 activeBtn.classList.add('active', 'bg-brand-500', 'border-brand-500');
                 activeBtn.classList.remove('border-white/30', 'hover:bg-white/10');
             }
 
-            // Show/hide country lists
+            // Show/hide country list panels
             const middleEastDiv = document.getElementById('middle-east-countries');
             const europeDiv = document.getElementById('europe-countries');
             const allDiv = document.getElementById('all-countries');
-
             if (middleEastDiv) middleEastDiv.classList.add('hidden');
             if (europeDiv) europeDiv.classList.add('hidden');
             if (allDiv) allDiv.classList.add('hidden');
 
-            if (country === 'middle-east' && middleEastDiv) {
-                middleEastDiv.classList.remove('hidden');
-            } else if (country === 'europe' && europeDiv) {
-                europeDiv.classList.remove('hidden');
-            } else if (country === 'all' && allDiv) {
-                allDiv.classList.remove('hidden');
+            if (region === 'middle-east' && middleEastDiv) middleEastDiv.classList.remove('hidden');
+            else if (region === 'europe' && europeDiv) europeDiv.classList.remove('hidden');
+            else if (region === 'all' && allDiv) allDiv.classList.remove('hidden');
+
+            // Build dynamic country pills
+            buildCountryPills(region);
+
+            // Filter cards by region with antigravity animation
+            animateCards(region, null);
+        }
+
+        // ── Country-level filter (pill buttons) ──
+        function filterByCountry(slug, clickedBtn) {
+            // Toggle: clicking same country again clears filter
+            if (activeCountrySlug === slug) {
+                activeCountrySlug = null;
+                document.querySelectorAll('.country-pill').forEach(p => p.classList.remove('active'));
+                animateCards(activeRegion, null);
+                return;
             }
 
-            // Filter job cards
+            activeCountrySlug = slug;
+
+            // Update pill styles
+            document.querySelectorAll('.country-pill').forEach(p => p.classList.remove('active'));
+            if (clickedBtn) clickedBtn.classList.add('active');
+
+            // Filter cards by specific country
+            animateCards(activeRegion, slug);
+        }
+
+        // ── Animate cards with antigravity effect ──
+        function animateCards(region, countrySlug) {
             const jobCards = document.querySelectorAll('.job-card');
+
             jobCards.forEach(card => {
-                const cardCountries = card.getAttribute('data-country').split(' ');
-                if (cardCountries.includes(country)) {
-                    card.style.display = '';
-                    setTimeout(() => card.classList.remove('opacity-50'), 10);
+                const attrs = card.getAttribute('data-country').split(' ');
+                let shouldShow;
+
+                if (countrySlug) {
+                    // Country-level filter
+                    shouldShow = attrs.includes(countrySlug);
                 } else {
-                    card.style.display = 'none';
+                    // Region-level filter
+                    shouldShow = attrs.includes(region);
                 }
+
+                const isCurrentlyVisible = card.style.display !== 'none';
+
+                if (shouldShow && isCurrentlyVisible) {
+                    // Already visible — subtle pulse
+                    card.classList.remove('card-exit', 'card-enter', 'card-pulse');
+                    void card.offsetWidth; // force reflow
+                    card.classList.add('card-pulse');
+                    card.addEventListener('animationend', function handler() {
+                        card.classList.remove('card-pulse');
+                        card.removeEventListener('animationend', handler);
+                    });
+
+                } else if (shouldShow && !isCurrentlyVisible) {
+                    // Should appear — float IN from bottom
+                    card.classList.remove('card-exit', 'card-pulse');
+                    card.style.display = 'flex';
+                    void card.offsetWidth;
+                    card.classList.add('card-enter');
+                    card.addEventListener('animationend', function handler() {
+                        card.classList.remove('card-enter');
+                        card.removeEventListener('animationend', handler);
+                    });
+
+                } else if (!shouldShow && isCurrentlyVisible) {
+                    // Should disappear — float AWAY upward
+                    card.classList.remove('card-enter', 'card-pulse');
+                    card.classList.add('card-exit');
+                    card.addEventListener('animationend', function handler() {
+                        card.style.display = 'none';
+                        card.classList.remove('card-exit');
+                        card.removeEventListener('animationend', handler);
+                    });
+                }
+                // If !shouldShow && !isCurrentlyVisible → do nothing
             });
         }
 
+        // ── Carousel navigation ──
         document.addEventListener('DOMContentLoaded', () => {
             const carousel = document.getElementById('vacancies-carousel');
             const prevBtn = document.getElementById('carousel-prev');
@@ -833,13 +902,9 @@
 
             if (carousel && prevBtn && nextBtn) {
                 const getScrollAmount = () => {
-                    if (window.innerWidth >= 1024) {
-                        return carousel.offsetWidth / 3;
-                    } else if (window.innerWidth >= 768) {
-                        return carousel.offsetWidth / 2;
-                    } else {
-                        return carousel.offsetWidth;
-                    }
+                    if (window.innerWidth >= 1024) return carousel.offsetWidth / 3;
+                    else if (window.innerWidth >= 768) return carousel.offsetWidth / 2;
+                    else return carousel.offsetWidth;
                 };
 
                 prevBtn.addEventListener('click', () => {
@@ -849,6 +914,9 @@
                     carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
                 });
             }
+
+            // Initialize: build pills for default region
+            buildCountryPills(activeRegion);
         });
     </script>
 </body>
