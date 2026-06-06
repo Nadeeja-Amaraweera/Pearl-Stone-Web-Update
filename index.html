@@ -419,22 +419,6 @@
                         major sectors.
                     </p>
                 </div>
-                <div class="flex flex-wrap items-center gap-4 mt-6 md:mt-0">
-                    <div class="flex gap-2">
-                        <button id="carousel-prev" aria-label="Previous vacancy"
-                            class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-brand-900 transition-all text-white focus:outline-none focus:ring-2 focus:ring-white/50">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button id="carousel-next" aria-label="Next vacancy"
-                            class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-brand-900 transition-all text-white focus:outline-none focus:ring-2 focus:ring-white/50">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                    <a href="services.html"
-                        class="flex-shrink-0 text-white border border-white/30 hover:bg-white hover:text-brand-900 px-6 py-3 rounded-full font-medium transition-colors duration-300">
-                        View All Services <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
             </div>
 
             <!-- Country/Region Filter Buttons -->
@@ -473,6 +457,7 @@
                 </span>
                 <div id="country-pills-container" class="flex flex-wrap gap-2"></div>
             </div>
+
             <div id="vacancies-carousel"
                 class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none pb-6">
                 <!-- Caregiver Card -->
@@ -531,7 +516,7 @@
 
                 <!-- Technical Card -->
                 <div class="job-card group relative rounded-3xl overflow-hidden cursor-pointer h-96 border border-brand-800 fade-right w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start transition-all duration-300"
-                    data-country="europe all germany" onclick="window.location.href = 'services.html'">
+                    data-country="middle-east all israel" onclick="window.location.href = 'services.html'">
                     <img src="images/technical-industrialServices.avif" alt="Technical Jobs" loading="lazy"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div
@@ -557,7 +542,7 @@
 
                 <!-- Unskilled Cleaners Card -->
                 <div class="job-card group relative rounded-3xl overflow-hidden cursor-pointer h-96 border border-brand-800 fade-right w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start transition-all duration-300"
-                    data-country="middle-east all uae qatar" onclick="window.location.href = 'services.html'">
+                    data-country="middle-east all israel" onclick="window.location.href = 'services.html'">
                     <img src="images/unskilled-cleaners.avif" alt="Cleaning Jobs" loading="lazy"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div
@@ -580,6 +565,40 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Empty State Message -->
+            <div id="no-jobs-message"
+                class="hidden flex-col items-center justify-center text-center p-8 md:p-12 bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl empty-state-float mx-auto max-w-lg w-full my-6 text-white">
+                <div class="text-blue-300 mb-6">
+                    <i class="fas fa-search fa-3x"></i>
+                </div>
+                <h3 class="font-heading text-2xl md:text-3xl font-bold text-white mb-2">No Available Jobs</h3>
+                <p class="text-blue-200 mb-8 max-w-md text-sm md:text-base leading-relaxed">
+                    Try selecting a different country or region.
+                </p>
+                <button onclick="clearFilters()"
+                    class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-3 rounded-full transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(37,99,235,0.5)] transform hover:scale-105 text-sm sm:text-base">
+                    Clear Filters
+                </button>
+            </div>
+
+            <!-- Navigation and View All Services Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+                <div id="carousel-nav-buttons" class="flex gap-2">
+                    <button id="carousel-prev" aria-label="Previous vacancy"
+                        class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-brand-900 transition-all text-white focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="carousel-next" aria-label="Next vacancy"
+                        class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-brand-900 transition-all text-white focus:outline-none focus:ring-2 focus:ring-white/50">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <a href="services.html"
+                    class="flex-shrink-0 text-white border border-white/30 hover:bg-white hover:text-brand-900 px-6 py-3 rounded-full font-medium transition-colors duration-300">
+                    View All Services <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -841,9 +860,15 @@
             animateCards(activeRegion, slug);
         }
 
+        // ── Clear Filters Suggestion ──
+        function clearFilters() {
+            filterCountry('all');
+        }
+
         // ── Animate cards with antigravity effect ──
         function animateCards(region, countrySlug) {
             const jobCards = document.querySelectorAll('.job-card');
+            let visibleCount = 0;
 
             jobCards.forEach(card => {
                 const attrs = card.getAttribute('data-country').split(' ');
@@ -855,6 +880,10 @@
                 } else {
                     // Region-level filter
                     shouldShow = attrs.includes(region);
+                }
+
+                if (shouldShow) {
+                    visibleCount++;
                 }
 
                 const isCurrentlyVisible = card.style.display !== 'none';
@@ -892,6 +921,28 @@
                 }
                 // If !shouldShow && !isCurrentlyVisible → do nothing
             });
+
+            // Toggle empty state message and navigation buttons
+            const noJobsMessage = document.getElementById('no-jobs-message');
+            const navButtons = document.getElementById('carousel-nav-buttons');
+            
+            if (noJobsMessage) {
+                if (visibleCount === 0) {
+                    noJobsMessage.classList.remove('hidden');
+                    noJobsMessage.classList.add('flex');
+                } else {
+                    noJobsMessage.classList.add('hidden');
+                    noJobsMessage.classList.remove('flex');
+                }
+            }
+
+            if (navButtons) {
+                if (visibleCount <= 1) {
+                    navButtons.style.display = 'none';
+                } else {
+                    navButtons.style.display = 'flex';
+                }
+            }
         }
 
         // ── Carousel navigation ──

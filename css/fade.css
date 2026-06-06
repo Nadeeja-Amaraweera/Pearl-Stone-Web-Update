@@ -118,3 +118,14 @@
 .country-pill-animate {
     animation: pillSlideIn 0.3s ease forwards;
 }
+
+/* ── Empty State Floating Animation ── */
+@keyframes gentleFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.empty-state-float {
+    animation: gentleFloat 3s ease-in-out infinite;
+}
